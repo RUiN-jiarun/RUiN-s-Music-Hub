@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>RUiN's Music Hub_Rock_Metal</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <link rel="stylesheet" href="{{url_for('static',filename='css/form.css')}}"/>
+</head>
+<body>
+
+	<div class="header">
+    	<h1>RUiN's Music Hub</h1>
+    	<p>A Simple Page of My Music Collection</p>
+  	</div>
+
+    <div class="navbar">
+        <a href="{{ url_for('hip_hop') }}">Hip-Hop</a>
+		<a href="{{ url_for('rock_metal') }}">Rock & Metal</a>
+		<a href="{{ url_for('convert_demo') }}">IMG Converter Demo</a>
+		<a href="{{ url_for('homepage') }}" class="right">Home</a>
+    </div>
+
+    <div class="row">
+
+    {% for i, j, k in lst %}
+        <div class="imglist">
+            <!--a href="{{url_for('static',filename='')}}{{i}}" id="{{loop.index0}}"-->
+            <a href="{{url_for('player_rock',id='')}}{{loop.index0}}" id="r{{loop.index0}}">
+                <img src="{{url_for('static',filename='')}}{{j}}">
+            </a>
+            <div class="desc">
+                {{k}}
+            </div>
+        </div>
+    {% endfor %}
+
+    </div>
+
+    <button onclick="topFunction()" class="button" id="myBtn" title="Back to top">Top</button>
+	<script>
+		window.onscroll = function() {scrollFunction()};
+		function scrollFunction() {console.log(121);
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("myBtn").style.display = "block";
+			} else {
+				document.getElementById("myBtn").style.display = "none";
+			}
+		}
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+
+    <div class="footer">
+		<h2>Created by 3180105640 RUiN</h2>
+		<p>Copyright ©RUiN <span id="ym"></span></p>
+  	</div>
+	<script>
+        var date = new Date();
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        document.getElementById("ym").innerHTML = y + "." + m;
+    </script>
+
+
+</body>
+</html>

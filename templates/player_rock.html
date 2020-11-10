@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock & Metal</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/player.css')}}"/>
+    <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <div id="bg" class="bg">
+            <div class="bg-cover"></div>
+        </div>
+        <div class="title">
+            <div class="music-info">
+                <div class="song" id="songName"></div>
+                <div class="artist" id="artist"></div>
+                <p hidden id="hidden_tag">{{id}}</p>
+            </div>
+        </div>
+        <div class="play-board">
+
+            <img id="needle" class="play-needle pause-needle" src="{{url_for('static', filename='img/player/play_needle.png')}}"/>
+
+            <div class="disk-bg"></div>
+
+            <div class="disk-cover disk-cover-animation">
+                <img id="album" class="album" src="{{url_for('static', filename='img/player/placeholder_disk_play_song.png')}}"/>
+                <img class="disk-border" src="{{url_for('static', filename='img/player/play_disc.png')}}"/>
+            </div>
+
+
+        </div>
+        <div class="footer">
+            <div class="src c-btn" id="l" onclick="showList()"></div>
+            <a href="{{ url_for('rock_metal') }}"><div class="back c-btn"></div></a>
+            <audio id="player" controls></audio>
+            <div class="pre c-btn" onclick="prev()"></div>
+            <div class="next c-btn" onclick="next()"></div>
+        </div>
+
+        <div id="lst" class="sidenav">
+            <p id="genre">Rock & Metal</p>
+            {% for i, j, k in lst %}
+                <a href="{{url_for('player_rock',id='')}}{{loop.index0}}" class="in"></a>
+            {% endfor %}
+        </div>
+    </div>
+<script type="text/javascript" src="{{url_for('static', filename='js/player_rock.js')}}"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>RUiN's Music Hub</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/form.css')}}"/>
+</head>
+<body>
+
+	<div class="header">
+    	<h1>RUiN's Music Hub</h1>
+    	<p>A Simple Page of My Music Collection</p>
+  	</div>
+
+	<div class="navbar">
+		<a href="{{ url_for('hip_hop') }}">Hip-Hop</a>
+		<a href="{{ url_for('rock_metal') }}">Rock & Metal</a>
+		<a href="{{ url_for('convert_demo') }}">IMG Converter Demo</a>
+		<a href="{{ url_for('homepage') }}" class="right">Home</a>
+	</div>
+	
+	<div class="row">
+	<div class="side">
+		<h2>About me</h2>
+		<img src="{{url_for('static', filename='img/main_2.jpg')}}" width="280px";
+			height=auto;  
+			max-width=100%;  
+			max-height=100%>
+		<p>Liu Jiarun</p>
+		<p>Shooted in 2019</p>
+
+		<h3>More about me...</h3>
+		<div class="container">
+			<div class="topleft" style="color:white">Cellist</div>
+			<img src="{{url_for('static', filename='img/cello.jpg')}}" width="280px" height="150px">
+		</div>
+		<p></p>
+		<div class="container">
+			<div class="topleft" style="color:black">Bassist</div>
+			<img src="{{url_for('static', filename='img/bass.jpeg')}}" width="280px" height="150px">
+		</div>
+		<p></p>
+		<div class="container">
+			<div class="topleft" style="color:white">Guitarist</div>
+			<img src="{{url_for('static', filename='img/guitar.jpg')}}" width="280px" height="150px">
+		</div>
+		<p></p>
+		</div>
+	
+
+    <div class="main">
+        <h2>About my music hub</h2>
+        <h3>Why...</h3>
+        <img src="{{url_for('static', filename='img/main_1.jpg')}}" width="600px">
+		<p>Shooted on Aug 29, 2020</p>
+        <p>As a music lover and an amatuer musician, I'd like to record my pace in chasing great music.</p>
+        <p></p>
+        <br>
+        <h3>What...</h3>
+        <img src="{{url_for('static', filename='img/kanata.jpg')}}" height="600px">
+        <p>Artwork by RUiN</p>
+		<p>Currently, there are some pages which store some of my favorite musics and songs.</p>
+        <p>More works will be uploaded soon...</p>
+		<p>Maybe including some art works...</p>
+    </div>
+  	</div>
+
+  	<div class="footer">
+		<h2>Created by 3180105640 RUiN</h2>
+		<p>Copyright ©RUiN <span id="ym"></span></p>
+  	</div>
+	<script>
+        var date = new Date();
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        document.getElementById("ym").innerHTML = y + "." + m;
+    </script>
+
+	<button onclick="topFunction()" class="button" id="myBtn" title="Back to top">Top</button>
+	<script>
+		window.onscroll = function() {scrollFunction()};
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("myBtn").style.display = "block";
+			} else {
+				document.getElementById("myBtn").style.display = "none";
+			}
+		}
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+
+</body>
+</html>
